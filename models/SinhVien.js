@@ -14,7 +14,7 @@
 //     }
 // }
 
-var SinhVien = function (maSV, tenSV, email, dt, dl, dh, drl, loaiSV) {
+var SinhVien = function(maSV, tenSV, email, dt, dl, dh, drl, loaiSV) {
     this.maSinhVien = maSV;
     this.tenSinhVien = tenSV;
     this.email = email;
@@ -23,8 +23,11 @@ var SinhVien = function (maSV, tenSV, email, dt, dl, dh, drl, loaiSV) {
     this.diemHoa = dh;
     this.diemRenLuyen = drl;
     this.loaiSinhVien = loaiSV;
+    this.xepLoai = function() {
+        return 'yếu';
+    }
 
-    this.diemTrungBinh = function () {
+    this.diemTrungBinh = function() {
         return (Number(this.diemToan) + Number(this.diemLy) + Number(this.diemHoa)) / 3;
     }
 }
