@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>JS-QLSV</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <h1 class="text-center">Quản Lý Sinh Viên</h1>
+        <div class="form-group">
+            <label for="maSV">Mã Sinh Viên:</label>
+            <input type="text" class="form-control" name="" id="maSV" aria-describedby="helpId" placeholder="">
+            <p id="id_err_maSV_ktRong" class="text-danger"></p>
+            <p id="id_errAllLetters_maSV" class="text-danger"></p>
+            <p id="id_errLength_maSV" class="text-danger"></p>
+        </div>
+        <div class="form-group">
+            <label for="tenSV">Tên Sinh Viên:</label>
+            <input type="text" class="form-control" name="" id="tenSV" aria-describedby="helpId" placeholder="">
+            <p id="id_err_tenSV_ktRong" class="text-danger"></p>
+            <p id="id_errAllLetters_tenSV" class="text-danger"></p>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" name="" id="email" aria-describedby="helpId" placeholder="">
+            <p id="id_err_email_ktRong" class="text-danger"></p>
+            <p id="id_errEmailRegex_tenSV" class="text-danger"></p>
+        </div>
+        <div class="form-group">
+            <label for="loaiSV">Loại Sinh Viên:</label>
+            <select class="form-control" name="" id="loaiSV">
+                <option value="Khó khăn">Khó khăn</option>
+                <option value="Bình thường">Bình thường</option>
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="diemToan">Điểm Toán</label>
+                    <input type="text" class="form-control" name="" id="diemToan" aria-describedby="helpId"
+                        placeholder="">
+                        <p id="id_err_diemToan_ktRong" class="text-danger"></p>
+                        <p id="id_errDiemToanRegex" class="text-danger"></p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="diemLy">Điểm Lý</label>
+                    <input type="text" class="form-control" name="" id="diemLy" aria-describedby="helpId"
+                        placeholder="">
+                        <p id="id_err_diemLy_ktRong" class="text-danger"></p>
+                        <p id="id_errDiemLyRegex" class="text-danger"></p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="diemHoa">Điểm Hóa</label>
+                    <input type="text" class="form-control" name="" id="diemHoa" aria-describedby="helpId"
+                        placeholder="">
+                        <p id="id_err_diemHoa_ktRong" class="text-danger"></p>
+                        <p id="id_errDiemHoaRegex" class="text-danger"></p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="diemRL">Điểm Rèn Luyện:</label>
+            <input type="text" class="form-control" name="" id="diemRL" aria-describedby="helpId" placeholder="">
+            <p id="id_err_diemRL_ktRong" class="text-danger"></p>
+            <p id="id_errDiemRLRegex" class="text-danger"></p>
+        </div>
+
+        <div class="button-submit text-center">
+            <button class="btn btn-primary" id="btnCapNhatSV">Cập nhật sinh viên</button>
+            <button class="btn btn-success" id="btnThemSV">Thêm sinh viên</button>
+        </div>
+
+
+        <div class="tableSinhVien mt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã sinh viên</th>
+                        <th>Tên sinh viên</th>
+                        <th>Email</th>
+                        <th>Loại sinh viên</th>
+                        <th>Điểm trung bình </th>
+                        <th>Điểm rèn luyện</th>
+                        <th>Chỉnh sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody id="tblSinhVien">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+ 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- CDN Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+
+    <script src="../models/SinhVien.js"></script>
+    <script src="../models/Validation.js"></script>
+
+    <!-- Services giao tiếp backend-->
+    <script src="../services/SinhVienService.js"></script>
+    
+    <!-- <script src="../controller/index.js"></script> -->
+    <script src="../controller/indexAjax.js"></script>
+</body>
+</html>
