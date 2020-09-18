@@ -24,7 +24,7 @@ var SinhVien = function(maSV, tenSV, email, dt, dl, dh, drl, loaiSV) {
     this.diemRenLuyen = drl;
     this.loaiSinhVien = loaiSV;
     this.xepLoai = function() {
-        return 'kha';
+        return 'ca chon';
     }
 
     this.diemTrungBinh = function() {
