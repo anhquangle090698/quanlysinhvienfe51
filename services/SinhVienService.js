@@ -50,4 +50,9 @@ var SinhVienService = function () {
         });
         return promise;
     }
+
+    //Tính năng tìm kiếm mới viết thêm
+    this.timKiemSinhVien = function (maSV) {
+        return "";
+    }
 }
